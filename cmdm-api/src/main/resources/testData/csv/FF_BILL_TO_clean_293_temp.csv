@@ -1,0 +1,5 @@
+#Customer_type|bill_to_number|bill_to_name|Status|bill_to_Address_1|bill_to_Address_2|bill_to_city|bill_to_state|phone|bill_to_postalcode|bill_to_country|vendor_number|legal_comp_name|opco_number|source_system
+T|030555|STIBO AUTO 1|NW|2457 US HWY 79 S||HENDERSON|TX|9036571161|75654-4412|USA|||293|SUS
+T|030556|STIBO AUTO 2<>|NW|2457 US HWY 79 S||HENDERSON|TX|9036571161|75654-4412|USA|||293|SUS
+T||STIBO AUTO 3|NW|2457 US HWY 79 S||HENDERSON|TX|9036571161|75654-4412|USA|||293|SUS
+T|030557|STIBO AUTO 5|NW|||HENDERSON|TX|9036571161|75654-4412|USA|||293|SUS

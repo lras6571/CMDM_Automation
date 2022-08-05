@@ -1,0 +1,16 @@
+{
+  "condition": {
+    "conditionType": "and",
+    "conditions": [
+      {
+        "conditionType": "name",
+        "operator": "eq",
+        "queryString": ""
+      },
+      {
+        "conditionType": "objecttype",
+        "objectType": "scdlab_cust_billto"
+      }
+    ]
+  }
+}
