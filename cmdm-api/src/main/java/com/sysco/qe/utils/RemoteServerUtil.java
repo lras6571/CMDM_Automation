@@ -48,11 +48,11 @@ public class RemoteServerUtil {
             File f = new File(fileName);
             channelSftp.put(new FileInputStream(f), f.getName());
 
-            System.out.println("File transfered successfully to host.");
+            System.out.println("File transferred successfully to host.");
 
         } catch (Exception ex) {
 
-            System.out.println("Exception found while tranfer the response.");
+            System.out.println("Exception found while transfer the response.");
 
         } finally {
 
