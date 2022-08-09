@@ -110,3 +110,5 @@ CDI-TC-100 - testDownloadFromS3Bucket
 CDI-TC-100 - testDownloadFromS3Bucket
 CDI-TC-100 - testDownloadFromS3Bucket
 CDI-TC-100 - testDownloadFromS3Bucket
+CDI-TC-100 - testDownloadFromS3Bucket
+CDI-TC-100 - testDownloadFromS3Bucket
