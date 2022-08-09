@@ -71,16 +71,16 @@ public class RequestUtil {
 
     }
 
-    //Change Entity Record Value
-    public static ValueDetails changeEntityRecordValue(String apiRequest, Map<String, String> queryParams) {
 
+    //Change Entity Record Value
+    public static ValueDetails changeEntityRecordValue(String apiRequest, Map<String, String> queryParams,String accountId) {
 
         APICommonUtil.setProtocolHostAndBasePath(BASE_HTTPS_PROTOCOL, BASE_DOMAIN_STIBO, BASE_PATH_STIBO);
         String uri = URIs.URI_STIBO_ENTITIES_VALUES;
-        Response response = RestUtil.send(HeaderUtil.getRequestHeaders("bHJhczY1NzE6bGFzYW4="), apiRequest, uri, RequestMethods.REQ_METHOD_PUT, queryParams);
+        Response response = RestUtil.send(HeaderUtil.getRequestHeaders("bHJhczY1NzE6bGFzYW4="), apiRequest, uri.replace("{accountId}", accountId), RequestMethods.REQ_METHOD_PUT, queryParams);
         ValueDetails valueDetails = (ValueDetails) ResponseUtils.getResponseAsObject(response.asString(), ValueDetails.class);
-        return valueDetails;
 
+        return valueDetails;
     }
 
 }
