@@ -1,5 +1,7 @@
 package com.sysco.qe.tests.kafkaconsumer;
 
+import com.sysco.qe.data.APIAssertErrorMessages;
+import com.sysco.qe.data.APIStatusCodes;
 import com.sysco.qe.data.QueryParameters;
 import com.sysco.qe.response.model.ValueDetails;
 import com.sysco.qe.utils.*;
@@ -41,8 +43,10 @@ public class KafkaConsumerTest extends APITestBase {
         entitySearchRequest.getCondition().getConditions().get(0).setQueryString(csvDataList.get(0).get(BILL_TO_NAME));
 //        EntitySearchResponse entityFieldUpdateResponses = (EntitySearchResponse) RequestUtil.changeEntityRecordValue(JacksonUtil.convertObjectToJsonString(entityFieldUpdateRequest), QueryParameters.getQueryParameters());
         ValueDetails valueDetails = RequestUtil.changeEntityRecordValue(JacksonUtil.convertObjectToJsonString(entityFieldUpdateRequest), QueryParameters.getQueryParameters());
+        softAssert.assertEquals(valueDetails.getStatusCode(), APIStatusCodes.RESPONSE_CODE_200, APIAssertErrorMessages.INVALID_STATUS_CODE);
 
         System.out.println("Response is : " + valueDetails);
+//        entitySearchResponse = RequestUtil.getEntitySearchResponse(JacksonUtil.convertObjectToJsonString(entitySearchRequest), QueryParameters.getQueryParameters());
 
 
     }
