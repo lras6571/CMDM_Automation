@@ -44,8 +44,5 @@ public class KafkaConsumerTest extends APITestBase {
         ValueDetails valueDetails = RequestUtil.changeEntityRecordValue(JacksonUtil.convertObjectToJsonString(entityFieldUpdateRequest), QueryParameters.getQueryParameters(),BILL_TO_SITE_SHIP_TO);
         softAssert.assertEquals(valueDetails.getStatusCode(), APIStatusCodes.RESPONSE_CODE_200, APIAssertErrorMessages.INVALID_STATUS_CODE);
 
-        System.out.println("Response is : " + valueDetails);
-
-
     }
 }
