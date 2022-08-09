@@ -99,4 +99,10 @@ public class APIConstants {
      * Zip File Downloaded Location Details
      */
     public static final String ZIP_FILE_LOCATION = "C:\\Sysco\\test.zip";
+
+    /**
+     * Record from STIBO
+     */
+    public static final String BILL_TO_SITE_SHIP_TO = "SCDLab_BillTo-9225477";
+    public static final String SHIP_TO_SITE_SHIP_TO = "SCDLab_ShipTo-9225477";
 }
