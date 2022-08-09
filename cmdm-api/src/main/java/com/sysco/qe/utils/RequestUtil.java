@@ -3,6 +3,7 @@ package com.sysco.qe.utils;
 import com.sysco.qe.data.URIs;
 import com.sysco.qe.response.model.EntitySearchDetailsResponse;
 import com.sysco.qe.response.model.EntitySearchResponse;
+import com.sysco.qe.response.model.ValueDetails;
 import com.sysco.qeutils.utils.APICommonUtil;
 import com.sysco.qeutils.utils.RequestMethods;
 import com.sysco.qeutils.utils.ResponseUtils;
@@ -67,6 +68,16 @@ public class RequestUtil {
         Response response = RestUtil.send(HeaderUtil.getRequestHeaders("Y2lkZDUzMzA6Y2hpcmFudGhh"), "", uri.replace("{accountId}", entityId), RequestMethods.REQ_METHOD_DELETE, queryParams);
 
         return response.getStatusCode();
+
+    }
+
+    //Change Entity Record Value
+    public static ValueDetails changeEntityRecordValue(String apiRequest, Map<String, String> queryParams) {
+
+        APICommonUtil.setProtocolHostAndBasePath(BASE_HTTPS_PROTOCOL, BASE_DOMAIN_STIBO, BASE_PATH_STIBO);
+        String uri = URIs.URI_STIBO_ENTITIES_VALUES;
+        ValueDetails valueDetails = (ValueDetails) RestUtil.send(HeaderUtil.getRequestHeaders("Y2lkZDUzMzA6Y2hpcmFudGhh"), apiRequest, uri, RequestMethods.REQ_METHOD_PUT, queryParams);
+        return valueDetails;
 
     }
 
