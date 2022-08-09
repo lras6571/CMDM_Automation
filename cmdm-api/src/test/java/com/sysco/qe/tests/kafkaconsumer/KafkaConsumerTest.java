@@ -1,6 +1,11 @@
 package com.sysco.qe.tests.kafkaconsumer;
 
+import com.sysco.qe.data.APIAssertErrorMessages;
+import com.sysco.qe.data.APIStatusCodes;
+import com.sysco.qe.data.QueryParameters;
+import com.sysco.qe.response.model.ValueDetails;
 import com.sysco.qe.utils.*;
+import com.sysco.qeutils.utils.JacksonUtil;
 import org.testng.ITestContext;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -22,25 +27,27 @@ public class KafkaConsumerTest extends APITestBase {
 
     }
 
-
     /**
-     * Download File from S3 Bucket
+     * Download File from S3 Bucket and Read
      */
-    @Test(description = "CDI-TC-xx", alwaysRun = true, priority = 1)
+    @Test(description = "CDI-TC-100", alwaysRun = true, priority = 1)
     public void testDownloadFromS3Bucket() throws IOException {
 
-        AWSS3Util.getS3File(BUCKET_NAME,FOLDER_KEY);
-    }
+        AWSS3Util.getS3File(BUCKET_NAME, FOLDER_KEY);
+
+        //Read Downloaded Zip File
+        FileInputStream input = new FileInputStream(new File(ZIP_FILE_LOCATION));
+        ZipFileReaderUtil.readZip(input, ZIP_FILE_LOCATION);
+
+        //Update the field Value
+        entitySearchRequest.getCondition().getConditions().get(0).setQueryString(csvDataList.get(0).get(BILL_TO_NAME));
+//        EntitySearchResponse entityFieldUpdateResponses = (EntitySearchResponse) RequestUtil.changeEntityRecordValue(JacksonUtil.convertObjectToJsonString(entityFieldUpdateRequest), QueryParameters.getQueryParameters());
+        ValueDetails valueDetails = RequestUtil.changeEntityRecordValue(JacksonUtil.convertObjectToJsonString(entityFieldUpdateRequest), QueryParameters.getQueryParameters());
+        softAssert.assertEquals(valueDetails.getStatusCode(), APIStatusCodes.RESPONSE_CODE_200, APIAssertErrorMessages.INVALID_STATUS_CODE);
+
+        System.out.println("Response is : " + valueDetails);
+//        entitySearchResponse = RequestUtil.getEntitySearchResponse(JacksonUtil.convertObjectToJsonString(entitySearchRequest), QueryParameters.getQueryParameters());
 
 
-    /**
-     * Read Downloaded Zip File
-     */
-    @Test(description = "CDI-TC-yy", alwaysRun = true, priority = 1)
-    public void testReadDownloadedZipFile() throws IOException {
-
-        String name = "C:\\Sysco\\test.zip";
-        FileInputStream input = new FileInputStream(new File(name));
-        ZipFileReaderUtil.readZip(input, name);
     }
 }

@@ -11,6 +11,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.sysco.qe.common.APIConstants.ZIP_FILE_LOCATION;
+
 public class AWSS3Util {
     private static AmazonS3 client = AmazonS3ClientBuilder.defaultClient();
 
@@ -28,7 +30,7 @@ public class AWSS3Util {
 
         S3Object s3object = client.getObject(bucketName, fileName);
         S3ObjectInputStream inputStream = s3object.getObjectContent();
-        FileUtils.copyInputStreamToFile(inputStream, new File("C:\\Sysco\\test.zip"));
+        FileUtils.copyInputStreamToFile(inputStream, new File(ZIP_FILE_LOCATION));
 
     }
 

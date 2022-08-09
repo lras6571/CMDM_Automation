@@ -6,7 +6,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class ValueDetails {
+public class ValueDetails extends EntitySearchResponse {
 
     @JsonProperty("calculated")
     private String calculated;
