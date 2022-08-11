@@ -4,6 +4,7 @@ import com.sysco.qe.common.APIConstants;
 import com.sysco.qe.data.APIAssertErrorMessages;
 import com.sysco.qe.data.APIStatusCodes;
 import com.sysco.qe.data.QueryParameters;
+import com.sysco.qe.requests.models.ApproveObjectRequest;
 import com.sysco.qe.requests.models.EntityFieldUpdateRequest;
 import com.sysco.qe.requests.models.EntitySearchRequest;
 import com.sysco.qe.response.model.EntitySearchDetailsResponse;
@@ -28,6 +29,7 @@ public class APITestBase {
     protected static SoftAssert softAssert;
     protected static EntitySearchRequest entitySearchRequest;
     protected static EntityFieldUpdateRequest entityFieldUpdateRequest;
+    protected static ApproveObjectRequest approveObjectRequest;
     protected static EntitySearchResponse entitySearchResponse;
     protected static EntitySearchDetailsResponse siteBillToResponse;
     protected static ValueDetails valueDetails;
@@ -71,6 +73,7 @@ public class APITestBase {
         LoggerUtil.logINFO("Test Running " + this.getClass().toString());
         entitySearchRequest = (EntitySearchRequest) DataUtil.loadTestData(APIConstants.INPUT_DATA_JSON_FILE, EntitySearchRequest.class);
         entityFieldUpdateRequest = (EntityFieldUpdateRequest) DataUtil.loadTestData(APIConstants.INPUT_DATA_JSON_FILE2, EntityFieldUpdateRequest.class);
+        approveObjectRequest = (ApproveObjectRequest) DataUtil.loadTestData(APIConstants.INPUT_DATA_JSON_FILE2, ApproveObjectRequest.class);
     }
 
     @BeforeSuite

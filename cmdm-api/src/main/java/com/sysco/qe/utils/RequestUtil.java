@@ -16,6 +16,9 @@ import static com.sysco.qe.common.APIConstants.*;
 
 public class RequestUtil {
 
+    private RequestUtil(){
+
+    }
     public static EntitySearchResponse getEntitySearchResponse(String apiRequest, Map<String, String> queryParams) {
 
         APICommonUtil.setProtocolHostAndBasePath(BASE_HTTPS_PROTOCOL, BASE_DOMAIN_STIBO, BASE_PATH_STIBO);
@@ -78,9 +81,19 @@ public class RequestUtil {
         APICommonUtil.setProtocolHostAndBasePath(BASE_HTTPS_PROTOCOL, BASE_DOMAIN_STIBO, BASE_PATH_STIBO);
         String uri = URIs.URI_STIBO_ENTITIES_VALUES;
         Response response = RestUtil.send(HeaderUtil.getRequestHeaders("bHJhczY1NzE6bGFzYW4="), apiRequest, uri.replace("{accountId}", accountId), RequestMethods.REQ_METHOD_PUT, queryParams);
-        ValueDetails valueDetails = (ValueDetails) ResponseUtils.getResponseAsObject(response.asString(), ValueDetails.class);
+        return (ValueDetails) ResponseUtils.getResponseAsObject(response.asString(), ValueDetails.class);
+    }
 
-        return valueDetails;
+
+    //Approve the Object
+    public static Response approveObject(String apiRequest, Map<String, String> queryParams,String accountId) {
+
+        APICommonUtil.setProtocolHostAndBasePath(BASE_HTTPS_PROTOCOL, BASE_DOMAIN_STIBO, BASE_PATH_STIBO);
+        String uri = URIs.URI_STIBO_OBJECT_APPROVAL;
+        Response response = RestUtil.send(HeaderUtil.getRequestHeaders("bHJhczY1NzE6bGFzYW4="), apiRequest, uri.replace("{accountId}", accountId), RequestMethods.REQ_METHOD_POST, queryParams);
+
+        return response;
+
     }
 
 }
