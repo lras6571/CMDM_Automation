@@ -84,4 +84,16 @@ public class RequestUtil {
         return (ValueDetails) ResponseUtils.getResponseAsObject(response.asString(), ValueDetails.class);
     }
 
+
+    //Approve the Object
+    public static Response approveObject(String apiRequest, Map<String, String> queryParams,String accountId) {
+
+        APICommonUtil.setProtocolHostAndBasePath(BASE_HTTPS_PROTOCOL, BASE_DOMAIN_STIBO, BASE_PATH_STIBO);
+        String uri = URIs.URI_STIBO_OBJECT_APPROVAL;
+        Response response = RestUtil.send(HeaderUtil.getRequestHeaders("bHJhczY1NzE6bGFzYW4="), apiRequest, uri.replace("{accountId}", accountId), RequestMethods.REQ_METHOD_POST, queryParams);
+
+        return response;
+
+    }
+
 }

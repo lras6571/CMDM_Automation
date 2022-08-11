@@ -22,7 +22,7 @@ public class RemoteServerUtil {
         Channel channel = null;
         ChannelSftp channelSftp = null;
 
-        System.out.println("preparing the host information for sftp.");
+        System.out.println("Preparing the Host Information for sftp.");
 
         try {
 
@@ -35,9 +35,9 @@ public class RemoteServerUtil {
 
             session.setConfig(config);
             session.connect();
-            System.out.println("Host connected.");
+            System.out.println("Host Connected.");
 
-            channel = session.openChannel("sftp");
+            channel = session.openChannel("SFTP");
             channel.connect();
             System.out.println("sftp channel opened and connected.");
 
@@ -48,22 +48,22 @@ public class RemoteServerUtil {
             File f = new File(fileName);
             channelSftp.put(new FileInputStream(f), f.getName());
 
-            System.out.println("File transferred successfully to host.");
+            System.out.println("File Transferred Successfully to the Host.");
 
         } catch (Exception ex) {
 
-            System.out.println("Exception found while transfer the response.");
+            System.out.println("Exception Found while Transfer the Response.");
 
         } finally {
 
             channelSftp.exit();
-            System.out.println("sftp Channel exited.");
+            System.out.println("SFTP Channel Exited.");
 
             channel.disconnect();
-            System.out.println("Channel disconnected.");
+            System.out.println("Channel Disconnected.");
 
             session.disconnect();
-            System.out.println("Host Session disconnected.");
+            System.out.println("Host Session Disconnected.");
 
         }
 
