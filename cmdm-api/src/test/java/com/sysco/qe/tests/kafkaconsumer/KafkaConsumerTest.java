@@ -56,6 +56,7 @@ public class KafkaConsumerTest extends APITestBase {
     public void testObjectApproval() throws IOException, InterruptedException {
 
         //Update the field Value of the Object
+        entityFieldUpdateRequest.getValue().setValue(RandomStringGenerateUtil.randomStringGenerator());
         valueDetails = RequestUtil.changeEntityRecordValue(JacksonUtil.convertObjectToJsonString(entityFieldUpdateRequest), QueryParameters.getQueryParameters(), BILL_TO_SITE_SHIP_TO);
         softAssert.assertEquals(valueDetails.getStatusCode(), APIStatusCodes.RESPONSE_CODE_200, APIAssertErrorMessages.INVALID_STATUS_CODE);
 
@@ -63,9 +64,9 @@ public class KafkaConsumerTest extends APITestBase {
         Response approvalResponse = RequestUtil.approveObject(JacksonUtil.convertObjectToJsonString(approveObjectRequest), QueryParameters.getQueryParameters(),BILL_TO_SITE_SHIP_TO);
         softAssert.assertEquals(approvalResponse.getStatusCode(), APIStatusCodes.RESPONSE_CODE_200, APIAssertErrorMessages.INVALID_STATUS_CODE);
 
-
-        sleep(12000);
+        //Retrieve the S3 Key and DPick the Correct File
         AWSS3Util.getS3File(BUCKET_NAME, FolderKeyUtil.retrieveKey());
+
         //Read Downloaded Zip File
         FileInputStream input = new FileInputStream(new File(ZIP_FILE_LOCATION));
         ZipFileReaderUtil.readZip(input, ZIP_FILE_LOCATION);
