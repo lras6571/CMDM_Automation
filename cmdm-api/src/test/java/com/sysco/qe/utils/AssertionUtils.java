@@ -4,7 +4,13 @@ import com.sysco.qe.common.APIConstants;
 import com.sysco.qe.data.APIAssertErrorMessages;
 import com.sysco.qeutils.utils.DateUtils;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Map;
+
+import static com.sysco.qe.common.APIConstants.ZIP_FILE_LOCATION;
 
 public class AssertionUtils extends APITestBase{
 
@@ -38,6 +44,14 @@ public class AssertionUtils extends APITestBase{
 
         softAssert.assertEquals(siteBillToResponse.getValues().getSyy_cust_a_workflowerrors().getValue().getValue(), expectedErrorMsg, APIAssertErrorMessages.INVALID_BILL_TO_WORKFLOW_ERROR);
 
+    }
+
+    public static void assertCSV() throws IOException {
+
+        FileInputStream input = new FileInputStream(new File(ZIP_FILE_LOCATION));
+//        softAssert.assertEquals(expectedName, actualName, APIAssertErrorMessages.INVALID_BILL_TO_WORKFLOW_ERROR);
+        softAssert.assertEquals( ZipFileReaderUtil.readZip(input, ZIP_FILE_LOCATION),DataFieldRetrieveUtil.retrieveData(2), APIAssertErrorMessages.INVALID_BILL_TO_WORKFLOW_ERROR);
+        softAssert.assertAll();
     }
 
 }
