@@ -62,49 +62,49 @@ public class KafkaConsumerTest extends APITestBase {
     }
 
 
-//    /**
-//     * Object Approval and Verify the Record is available in S3 Bucket - Bill To
-//     */
-//    @Test(description = "CDI-TC-147", alwaysRun = true, priority = 1)
-//    public void testObjectApprovalBillToTest() throws IOException, InterruptedException {
-//
-//        //Update the field Value of the Object
-//        entityFieldUpdateRequest.getValue().setValue(RandomStringGenerateUtil.randomStringGenerator());
-//        valueDetails = RequestUtil.changeEntityRecordValue(JacksonUtil.convertObjectToJsonString(entityFieldUpdateRequest), QueryParameters.getQueryParameters(), BILL_TO_SITE_SHIP_TO,BILL_TO_TYPE);
-//        softAssert.assertEquals(valueDetails.getStatusCode(), APIStatusCodes.RESPONSE_CODE_200, APIAssertErrorMessages.INVALID_STATUS_CODE);
-//
-//        //Approve the Object
-//        Response approvalResponse = RequestUtil.approveObject(JacksonUtil.convertObjectToJsonString(approveObjectRequest), QueryParameters.getQueryParameters(),BILL_TO_SITE_SHIP_TO);
-//        softAssert.assertEquals(approvalResponse.getStatusCode(), APIStatusCodes.RESPONSE_CODE_200, APIAssertErrorMessages.INVALID_STATUS_CODE);
-//
-//        //Retrieve the S3 Key and Pick the Correct File
-//        AWSS3Util.getS3File(BUCKET_NAME, FolderKeyUtil.retrieveKey(BILL_TO_TYPE));
-//
-//        //Read Downloaded Zip File
-//        FileInputStream input = new FileInputStream(new File(ZIP_FILE_LOCATION));
-//        ZipFileReaderUtil.readZip(input, ZIP_FILE_LOCATION);
-//    }
-//
-//
-//
-//    /**
-//     * Object Approval and Verify the Record is available in S3 Bucket - Ship To
-//     */
-//    @Test(description = "CDI-TC-158", alwaysRun = true, priority = 2)
-//    public void testObjectApprovalShipToTest() throws IOException, InterruptedException {
-//
-//        //Update the field Value of the Object Request
-//        entityFieldUpdateRequest.getValue().setValue(RandomStringGenerateUtil.randomStringGenerator());
-//        valueDetails = RequestUtil.changeEntityRecordValue(JacksonUtil.convertObjectToJsonString(entityFieldUpdateRequest), QueryParameters.getQueryParameters(),SHIP_TO_SITE_SHIP_TO,SHIP_TO_TYPE);
-//        softAssert.assertEquals(valueDetails.getStatusCode(), APIStatusCodes.RESPONSE_CODE_200, APIAssertErrorMessages.INVALID_STATUS_CODE);
-//
-//        //Approve the Object Request
-//        Response approvalResponse = RequestUtil.approveObject(JacksonUtil.convertObjectToJsonString(approveObjectRequest), QueryParameters.getQueryParameters(),SHIP_TO_SITE_SHIP_TO);
-//        softAssert.assertEquals(approvalResponse.getStatusCode(), APIStatusCodes.RESPONSE_CODE_200, APIAssertErrorMessages.INVALID_STATUS_CODE);
-//
-//        //Retrieve the S3 Key and Pick the Correct File, Then Read Downloaded Zip File
-//        AWSS3Util.getS3File(BUCKET_NAME, FolderKeyUtil.retrieveKey(SHIP_TO_TYPE));
-//        FileInputStream input = new FileInputStream(new File(ZIP_FILE_LOCATION));
-//        ZipFileReaderUtil.readZip(input, ZIP_FILE_LOCATION);
-//    }
+    /**
+     * Object Approval and Verify the Record is available in S3 Bucket - Bill To
+     */
+    @Test(description = "CDI-TC-147", alwaysRun = true, priority = 1)
+    public void testObjectApprovalBillToTest() throws IOException, InterruptedException {
+
+        //Update the field Value of the Object
+        entityFieldUpdateRequest.getValue().setValue(RandomStringGenerateUtil.randomStringGenerator());
+        valueDetails = RequestUtil.changeEntityRecordValue(JacksonUtil.convertObjectToJsonString(entityFieldUpdateRequest), QueryParameters.getQueryParameters(), BILL_TO_SITE_SHIP_TO,BILL_TO_TYPE);
+        softAssert.assertEquals(valueDetails.getStatusCode(), APIStatusCodes.RESPONSE_CODE_200, APIAssertErrorMessages.INVALID_STATUS_CODE);
+
+        //Approve the Object
+        Response approvalResponse = RequestUtil.approveObject(JacksonUtil.convertObjectToJsonString(approveObjectRequest), QueryParameters.getQueryParameters(),BILL_TO_SITE_SHIP_TO);
+        softAssert.assertEquals(approvalResponse.getStatusCode(), APIStatusCodes.RESPONSE_CODE_200, APIAssertErrorMessages.INVALID_STATUS_CODE);
+
+        //Retrieve the S3 Key and Pick the Correct File
+        AWSS3Util.getS3File(BUCKET_NAME, FolderKeyUtil.retrieveKey(BILL_TO_TYPE));
+
+        //Read Downloaded Zip File
+        FileInputStream input = new FileInputStream(new File(ZIP_FILE_LOCATION));
+        ZipFileReaderUtil.readZip(input, ZIP_FILE_LOCATION);
+    }
+
+
+
+    /**
+     * Object Approval and Verify the Record is available in S3 Bucket - Ship To
+     */
+    @Test(description = "CDI-TC-158", alwaysRun = true, priority = 2)
+    public void testObjectApprovalShipToTest() throws IOException, InterruptedException {
+
+        //Update the field Value of the Object Request
+        entityFieldUpdateRequest.getValue().setValue(RandomStringGenerateUtil.randomStringGenerator());
+        valueDetails = RequestUtil.changeEntityRecordValue(JacksonUtil.convertObjectToJsonString(entityFieldUpdateRequest), QueryParameters.getQueryParameters(),SHIP_TO_SITE_SHIP_TO,SHIP_TO_TYPE);
+        softAssert.assertEquals(valueDetails.getStatusCode(), APIStatusCodes.RESPONSE_CODE_200, APIAssertErrorMessages.INVALID_STATUS_CODE);
+
+        //Approve the Object Request
+        Response approvalResponse = RequestUtil.approveObject(JacksonUtil.convertObjectToJsonString(approveObjectRequest), QueryParameters.getQueryParameters(),SHIP_TO_SITE_SHIP_TO);
+        softAssert.assertEquals(approvalResponse.getStatusCode(), APIStatusCodes.RESPONSE_CODE_200, APIAssertErrorMessages.INVALID_STATUS_CODE);
+
+        //Retrieve the S3 Key and Pick the Correct File, Then Read Downloaded Zip File
+        AWSS3Util.getS3File(BUCKET_NAME, FolderKeyUtil.retrieveKey(SHIP_TO_TYPE));
+        FileInputStream input = new FileInputStream(new File(ZIP_FILE_LOCATION));
+        ZipFileReaderUtil.readZip(input, ZIP_FILE_LOCATION);
+    }
 }
