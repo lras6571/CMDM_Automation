@@ -20,8 +20,8 @@ public class FolderKeyUtil {
     private FolderKeyUtil(){
     }
 
-    public static String retrieveKey() throws InterruptedException {
-        sleep(120000);
+    public static String retrieveKey(String type) throws InterruptedException {
+        sleep(90000);
         String bucketName = "cmdm-outbound-incremental-data";
         S3Object object = null;
 
@@ -29,14 +29,14 @@ public class FolderKeyUtil {
         cstCdtFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
         String dateFormat = cstCdtFormat.format(new Date());
 
-        int a = 332;
+        int a = 333;
         for (int i = a; i > 326; i--) {
             LocalTime time = LocalTime.now();
             LocalTime newTime = time.minusMinutes(i);
             String latestTime = newTime.toString().substring(0, 6);
 
             S3Client client = S3Client.builder().build();
-            ListObjectsRequest request = ListObjectsRequest.builder().bucket(bucketName).prefix("billto/" + dateFormat + "-" + latestTime).build();
+            ListObjectsRequest request = ListObjectsRequest.builder().bucket(bucketName).prefix(type+"/" + dateFormat + "-" + latestTime).build();
             ListObjectsResponse response = client.listObjects(request);
             List<S3Object> objects = response.contents();
             ListIterator<S3Object> listIterator = objects.listIterator();

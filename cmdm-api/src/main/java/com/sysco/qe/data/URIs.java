@@ -4,7 +4,8 @@ public class URIs {
 
     public static final String URI_STIBO_ENTITIES_SEARCH = "entities/search";
     public static final String URI_STIBO_ENTITIES = "entities/{accountId}";
-    public static final String URI_STIBO_ENTITIES_VALUES = "entities/{accountId}/values/scdlab_cust_a_billtovendornumber";
+    public static final String URI_STIBO_ENTITIES_VALUES1 = "entities/{accountId}/values/scdlab_cust_a_billtovendornumber";
+    public static final String URI_STIBO_ENTITIES_VALUES = "entities/{accountId}/values/scdlab_cust_a_{type}vendornumber";
     public static final String URI_STIBO_OBJECT_APPROVAL = "entities/{accountId}/approve";
     public static final String URI_STIBO_ENTITIES_REFERENCE = "entities/{id}/references/{referenceTypeId}/{targetId}";
 
