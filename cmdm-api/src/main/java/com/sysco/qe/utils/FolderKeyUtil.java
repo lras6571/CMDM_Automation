@@ -13,9 +13,15 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.TimeZone;
 
+import static java.lang.Thread.sleep;
+
 public class FolderKeyUtil {
 
-    public static String retrieveKey() {
+    private FolderKeyUtil(){
+    }
+
+    public static String retrieveKey(String type) throws InterruptedException {
+        sleep(90000);
         String bucketName = "cmdm-outbound-incremental-data";
         S3Object object = null;
 
@@ -26,12 +32,11 @@ public class FolderKeyUtil {
         int a = 333;
         for (int i = a; i > 326; i--) {
             LocalTime time = LocalTime.now();
-            LocalTime newTime1 = time.minusMinutes(i);
-            String latestTime1 = newTime1.toString().substring(0, 6);
-            System.out.println(latestTime1);
+            LocalTime newTime = time.minusMinutes(i);
+            String latestTime = newTime.toString().substring(0, 6);
 
             S3Client client = S3Client.builder().build();
-            ListObjectsRequest request = ListObjectsRequest.builder().bucket(bucketName).prefix("billto/" + dateFormat + "-" + latestTime1).build();
+            ListObjectsRequest request = ListObjectsRequest.builder().bucket(bucketName).prefix(type+"/" + dateFormat + "-" + latestTime).build();
             ListObjectsResponse response = client.listObjects(request);
             List<S3Object> objects = response.contents();
             ListIterator<S3Object> listIterator = objects.listIterator();

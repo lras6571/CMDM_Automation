@@ -47,6 +47,9 @@ public class APIConstants {
     public static final String INPUT_DATA_JSON_FILE3 = PATH_TO_RESOURCE + REQUEST_DATA_DIRECTORY + "ApproveObject.json";
     public static final String INPUT_BILL_TO_DATA_CSV_FILE = PATH_TO_RESOURCE + CSV_DATA_DIRECTORY + "FF_BILL_TO_clean_293_temp.csv";
     public static final String INPUT_BILL_TO_DATA_CSV_FILE2 = PATH_TO_RESOURCE + CSV_DATA_DIRECTORY + "FF_BILL_TO_clean_293_temp2.csv";
+    public static final String INPUT_BILL_TO_DATA_CSV_FILE3 = PATH_TO_RESOURCE + CSV_DATA_DIRECTORY + "FF_SHIP_TO_clean_293_temp2.csv";
+    public static final int STIBO_IMPORT_WAIT = 120000;
+
 
     /**
      * Data Model Configurations
@@ -69,6 +72,8 @@ public class APIConstants {
     public static final String LEGAL_COMP_NAME = "legal_comp_name";
     public static final String OPCO_NUMBER = "opco_number";
     public static final String SOURCE_SYSTEM = "source_system";
+    public static final String BILL_TO_TYPE = "billto";
+    public static final String SHIP_TO_TYPE = "shipto";
 
     /**
      * STIBO Server Configurations
@@ -77,6 +82,7 @@ public class APIConstants {
     public static final String USER = SUTAPProperties.getProperty("stibo.user");
     public static final String PASSWORD = SUTAPProperties.getProperty("stibo.password");
     public static final String REMOTE_DIR_PATH = SUTAPProperties.getProperty("stibo.remoteDirPath");
+    public static final String REMOTE_DIR_PATH_SHIP_TO = SUTAPProperties.getProperty("stibo.remoteDirPathShipTo");
 
     /**
      * Entity Reference Types
@@ -93,7 +99,7 @@ public class APIConstants {
      * S3 Bucket Location Details
      */
     public static final String BUCKET_NAME = "cmdm-outbound-incremental-data";
-    public static final String FOLDER_KEY = "billto/2022/8/7/08-07-2022-04:30:42.zip";
+    public static final String FOLDER_KEY = "billto/2022/8/12/08-12-2022-11:36:55.zip";
 
 
     /**
@@ -101,9 +107,10 @@ public class APIConstants {
      */
     public static final String ZIP_FILE_LOCATION = "C:\\Sysco\\test.zip";
 
+
     /**
      * Record from STIBO
      */
     public static final String BILL_TO_SITE_SHIP_TO = "SCDLab_BillTo-9225477";
-    public static final String SHIP_TO_SITE_SHIP_TO = "SCDLab_ShipTo-9225477";
+    public static final String SHIP_TO_SITE_SHIP_TO = "SCDLab-ShipTo-9199542";
 }

@@ -4,9 +4,13 @@ import com.jcraft.jsch.Channel;
 import com.jcraft.jsch.ChannelSftp;
 import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.Session;
+import com.syscolab.qe.core.common.LoggerUtil;
+import lombok.SneakyThrows;
 
 import java.io.File;
 import java.io.FileInputStream;
+
+import static com.sysco.qe.common.APIConstants.STIBO_IMPORT_WAIT;
 
 public class RemoteServerUtil {
 
@@ -37,7 +41,7 @@ public class RemoteServerUtil {
             session.connect();
             System.out.println("Host Connected.");
 
-            channel = session.openChannel("SFTP");
+            channel = session.openChannel("sftp");
             channel.connect();
             System.out.println("sftp channel opened and connected.");
 
@@ -67,6 +71,13 @@ public class RemoteServerUtil {
 
         }
 
+    }
+
+
+    @SneakyThrows
+    public static void waitUntilSTIBORecordsImport() {
+        Thread.sleep(STIBO_IMPORT_WAIT);
+        LoggerUtil.logINFO("Waiting for STIBO data import..");
     }
 
 }
