@@ -21,7 +21,7 @@ public class FolderKeyUtil {
     }
 
     public static String retrieveKey(String type) throws InterruptedException {
-        sleep(90000);
+        sleep(180000);
         String bucketName = "cmdm-outbound-incremental-data";
         S3Object object = null;
 
@@ -44,7 +44,7 @@ public class FolderKeyUtil {
 
             while (listIterator.hasNext()) {
                 object = listIterator.next();
-                System.out.println(object.key());
+                LoggerUtil.logINFO(object.key());
             }
         }
 

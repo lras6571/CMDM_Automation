@@ -38,10 +38,8 @@ public class KafkaConsumerTest extends APITestBase {
         //Retrieve the S3 Key and Pick the Correct File, Then Read Downloaded Zip File
         AWSS3Util.getS3File(BUCKET_NAME, FolderKeyUtil.retrieveKey(BILL_TO_TYPE));
         FileInputStream input = new FileInputStream(new File(ZIP_FILE_LOCATION));
-//        ZipFileReaderUtil.readZip(input, ZIP_FILE_LOCATION);
-//        AssertionUtils.assertCSV(DataFieldRetrieveUtil.retrieveData(2), ZipFileReaderUtil.readZip(input, ZIP_FILE_LOCATION));
+        ZipFileReaderUtil.readZip(input, ZIP_FILE_LOCATION);
         AssertionUtils.assertCSV();
-
     }
 
 //
