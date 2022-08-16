@@ -45,7 +45,7 @@ public class AssertionUtils extends APITestBase {
 
     }
 
-    public static void assertCSV() throws IOException {
+    public static void assertCSV(){
 
         softAssert.assertEquals(ZipFileReaderUtil.readBillToNameFromFile(), DataFieldRetrieveUtil.retrieveData(2), APIAssertErrorMessages.INVALID_BILL_TO_WORKFLOW_ERROR);
         softAssert.assertEquals(ZipFileReaderUtil.readBillToAccountNumberFromFile(), DataFieldRetrieveUtil.retrieveData(1), APIAssertErrorMessages.INVALID_BILL_TO_WORKFLOW_ERROR);
