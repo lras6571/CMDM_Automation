@@ -1,6 +1,6 @@
 package com.sysco.qe.utils;
 
-import org.junit.Test;
+import com.syscolab.qe.core.common.LoggerUtil;
 import software.amazon.awssdk.services.s3.S3Client;
 import software.amazon.awssdk.services.s3.model.ListObjectsRequest;
 import software.amazon.awssdk.services.s3.model.ListObjectsResponse;
@@ -17,11 +17,11 @@ import static java.lang.Thread.sleep;
 
 public class FolderKeyUtil {
 
-    private FolderKeyUtil(){
+    private FolderKeyUtil() {
     }
 
     public static String retrieveKey(String type) throws InterruptedException {
-        sleep(90000);
+        sleep(180000);
         String bucketName = "cmdm-outbound-incremental-data";
         S3Object object = null;
 
@@ -29,21 +29,22 @@ public class FolderKeyUtil {
         cstCdtFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
         String dateFormat = cstCdtFormat.format(new Date());
 
-        int a = 333;
+        int a = 332;
         for (int i = a; i > 326; i--) {
             LocalTime time = LocalTime.now();
             LocalTime newTime = time.minusMinutes(i);
             String latestTime = newTime.toString().substring(0, 6);
 
             S3Client client = S3Client.builder().build();
-            ListObjectsRequest request = ListObjectsRequest.builder().bucket(bucketName).prefix(type+"/" + dateFormat + "-" + latestTime).build();
+            ListObjectsRequest request = ListObjectsRequest.builder().bucket(bucketName).prefix(type + "/" + dateFormat + "-" + latestTime).build();
+            LoggerUtil.logINFO(type + "/" + dateFormat + "-" + latestTime);
             ListObjectsResponse response = client.listObjects(request);
             List<S3Object> objects = response.contents();
             ListIterator<S3Object> listIterator = objects.listIterator();
 
             while (listIterator.hasNext()) {
                 object = listIterator.next();
-                System.out.println(object.key());
+                LoggerUtil.logINFO(object.key());
             }
         }
 

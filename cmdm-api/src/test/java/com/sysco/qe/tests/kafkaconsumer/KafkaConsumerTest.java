@@ -10,10 +10,7 @@ import org.testng.ITestContext;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 
 import static com.sysco.qe.common.APIConstants.*;
 import static java.lang.Thread.sleep;
@@ -42,26 +39,26 @@ public class KafkaConsumerTest extends APITestBase {
         AWSS3Util.getS3File(BUCKET_NAME, FolderKeyUtil.retrieveKey(BILL_TO_TYPE));
         FileInputStream input = new FileInputStream(new File(ZIP_FILE_LOCATION));
         ZipFileReaderUtil.readZip(input, ZIP_FILE_LOCATION);
-
+        AssertionUtils.assertCSV();
     }
 
+//
+//    /**
+//     * Download File from S3 Bucket and Read - Ship To
+//     */
+//    @Test(description = "CDI-TC-114", alwaysRun = true, priority = 1)
+//    public void testUploadFileToS3ShipTo() throws IOException, InterruptedException {
+//
+//        RemoteServerUtil.uploadFileToRemoteServer(HOST, USER, PASSWORD, REMOTE_DIR_PATH_SHIP_TO, INPUT_BILL_TO_DATA_CSV_FILE3);
+//        csvDataList = DataUtil.readCSVAsListOfMaps(INPUT_BILL_TO_DATA_CSV_FILE3);
+//
+//        //Retrieve the S3 Key and Pick the Correct File, Then Read Downloaded Zip File
+//        AWSS3Util.getS3File(BUCKET_NAME, FolderKeyUtil.retrieveKey(SHIP_TO_TYPE));
+//        FileInputStream input = new FileInputStream(new File(ZIP_FILE_LOCATION));
+//        ZipFileReaderUtil.readZip(input, ZIP_FILE_LOCATION);
+//    }
 
-    /**
-     * Download File from S3 Bucket and Read - Ship To
-     */
-    @Test(description = "CDI-TC-114", alwaysRun = true, priority = 1)
-    public void testUploadFileToS3ShipTo() throws IOException, InterruptedException {
-
-        RemoteServerUtil.uploadFileToRemoteServer(HOST, USER, PASSWORD, REMOTE_DIR_PATH_SHIP_TO, INPUT_BILL_TO_DATA_CSV_FILE3);
-        csvDataList = DataUtil.readCSVAsListOfMaps(INPUT_BILL_TO_DATA_CSV_FILE3);
-
-        //Retrieve the S3 Key and Pick the Correct File, Then Read Downloaded Zip File
-        AWSS3Util.getS3File(BUCKET_NAME, FolderKeyUtil.retrieveKey(SHIP_TO_TYPE));
-        FileInputStream input = new FileInputStream(new File(ZIP_FILE_LOCATION));
-        ZipFileReaderUtil.readZip(input, ZIP_FILE_LOCATION);
-    }
-
-
+//
 //    /**
 //     * Object Approval and Verify the Record is available in S3 Bucket - Bill To
 //     */
