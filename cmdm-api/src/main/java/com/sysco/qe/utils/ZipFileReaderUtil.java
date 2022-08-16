@@ -12,7 +12,6 @@ import java.util.zip.ZipInputStream;
 
 public class ZipFileReaderUtil {
 
-    private static String columnValue;
     private static String[] fullValueLine;
 
     private ZipFileReaderUtil() {
