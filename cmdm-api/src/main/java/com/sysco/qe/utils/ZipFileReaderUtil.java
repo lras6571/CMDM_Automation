@@ -18,7 +18,7 @@ public class ZipFileReaderUtil {
     private ZipFileReaderUtil() {
     }
 
-    public static String readZip(final InputStream in, final String name) throws IOException {
+    public static String[] readZip(final InputStream in, final String name) throws IOException {
         final ZipInputStream zin = new ZipInputStream(in);
         ZipEntry entry;
         while ((entry = zin.getNextEntry()) != null) {
@@ -28,7 +28,7 @@ public class ZipFileReaderUtil {
                 readFile(zin, entry.getName());
             }
         }
-        return columnValue.replace("\"", "");
+        return fullValueLine;
     }
 
 
@@ -37,7 +37,6 @@ public class ZipFileReaderUtil {
         String contents = new BufferedReader(new InputStreamReader(in)).lines().collect(Collectors.joining("\n"));
         LoggerUtil.logINFO(String.format("Contents of %s: %s", name, contents));
         fullValueLine = contents.split("\\|");
-        columnValue = fullValueLine[20];
     }
 
 
