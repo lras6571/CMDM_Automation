@@ -13,11 +13,11 @@ public class DataFieldRetrieveUtil {
     }
 
     // Main driver method
-    public static String retrieveData(int columnNumber) {
+    public static String retrieveData(int columnNumber, String filePath) {
         CSVReader reader = null;
         String[] strAr1 = new String[0];
         try {
-            reader = new CSVReader(new FileReader(INPUT_BILL_TO_DATA_CSV_FILE2));
+            reader = new CSVReader(new FileReader(filePath));
             String[] nextLine;
             //read one line at a time
             while ((nextLine = reader.readNext()) != null) {
