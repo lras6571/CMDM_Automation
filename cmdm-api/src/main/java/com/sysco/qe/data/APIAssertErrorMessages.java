@@ -23,6 +23,17 @@ public class APIAssertErrorMessages {
     public static final String INVALID_BILL_TO_ADDRESS1 = "Invalid Bill To Address Line 1";
     public static final String INVALID_BILL_TO_WORKFLOW_ERROR = "Invalid Bill To Workflow Error";
     public static final String INVALID_BILL_TO_RESPONSE_BODY = "Invalid Bill To Response Body";
+    public static final String INVALID_SHIP_TO_ADDRESS1 = "Invalid Ship To Address Line 1";
+    public static final String INVALID_SHIP_TO_CITY = "Invalid Ship To City";
+    public static final String INVALID_SHIP_TO_STATE = "Invalid Ship To State Code";
+    public static final String INVALID_SHIP_TO_TEL = "Invalid Ship To Telephone Number";
+    public static final String INVALID_SHIP_TO_ZIP = "Invalid Ship To Zip code";
+    public static final String INVALID_SHIP_TO_COUNTRY = "Invalid Ship To Country Code";
+    public static final String INVALID_SHIP_TO_OPCO = "Invalid Ship To OpCo ID";
+    public static final String INVALID_SHIP_TO_STORE = "Invalid Ship To Store Number";
+    public static final String INVALID_SHIP_TO_SOURCE = "Invalid Ship To Source System";
+    public static final String INVALID_SHIP_TO_ENTERPRISE_BILL_TO_FOR_SITE_SHIP_TO = "Invalid Enterprise Bill to for Site Ship to";
+
 
     APIAssertErrorMessages() {
     }

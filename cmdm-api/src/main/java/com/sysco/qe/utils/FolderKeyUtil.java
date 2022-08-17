@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.TimeZone;
 
+import static com.sysco.qe.common.APIConstants.BUCKET_NAME;
 import static java.lang.Thread.sleep;
 
 public class FolderKeyUtil {
@@ -22,7 +23,7 @@ public class FolderKeyUtil {
 
     public static String retrieveKey(String type) throws InterruptedException {
         sleep(180000);
-        String bucketName = "cmdm-outbound-incremental-data";
+        String bucketName = BUCKET_NAME;
         S3Object object = null;
 
         SimpleDateFormat cstCdtFormat = new SimpleDateFormat("yyyy/M/dd/MM-dd-yyyy");

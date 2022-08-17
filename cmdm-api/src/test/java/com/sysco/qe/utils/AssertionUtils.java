@@ -45,17 +45,17 @@ public class AssertionUtils extends APITestBase {
 
     public static void assertBillToCSV(String filePath){
 
-        softAssert.assertEquals(ZipFileReaderUtil.readBillToNameFromFile(BILL_TO_ACCOUNT_NAME_S3), DataFieldRetrieveUtil.retrieveData(BILL_TO_NAME_CSV,filePath), APIAssertErrorMessages.INVALID_BILL_TO_WORKFLOW_ERROR);
-        softAssert.assertEquals(ZipFileReaderUtil.readBillToAccountNumberFromFile(BILL_TO_ACCOUNT_NUMBER_S3), DataFieldRetrieveUtil.retrieveData(BILLTO_NUMBER_CSV,filePath), APIAssertErrorMessages.INVALID_BILL_TO_WORKFLOW_ERROR);
-        softAssert.assertEquals(ZipFileReaderUtil.readBillToStatusFromFile(BILL_TO_ACCOUNT_STATUS_S3), DataFieldRetrieveUtil.retrieveData(BILL_TO_STATUS_CSV,filePath), APIAssertErrorMessages.INVALID_BILL_TO_WORKFLOW_ERROR);
-        softAssert.assertEquals(ZipFileReaderUtil.readBillToAddressFromFile(BILL_TO_ADDRESS_LINE1_S3), DataFieldRetrieveUtil.retrieveData(BILL_TO_ADDRESS_1_CSV,filePath), APIAssertErrorMessages.INVALID_BILL_TO_WORKFLOW_ERROR);
-        softAssert.assertEquals(ZipFileReaderUtil.readBillToCityFromFile(BILL_TO_CITY_S3), DataFieldRetrieveUtil.retrieveData(BILL_TO_CITY_CSV,filePath), APIAssertErrorMessages.INVALID_BILL_TO_WORKFLOW_ERROR);
-        softAssert.assertEquals(ZipFileReaderUtil.readBillToStateFromFile(BILL_TO_STATE_CODE_S3), DataFieldRetrieveUtil.retrieveData(BILL_TO_STATE_CSV,filePath), APIAssertErrorMessages.INVALID_BILL_TO_WORKFLOW_ERROR);
-        softAssert.assertEquals(ZipFileReaderUtil.readBillToTelephoneNumberFromFile(BILL_TO_TELEPHONE_NUMBER_S3), DataFieldRetrieveUtil.retrieveData(BILL_TO_PHONE_CSV,filePath), APIAssertErrorMessages.INVALID_BILL_TO_WORKFLOW_ERROR);
-        softAssert.assertEquals(ZipFileReaderUtil.readBillToPostalCodeFromFile(BILL_TO_ZIP_CODE_S3), DataFieldRetrieveUtil.retrieveData(BILL_TO_POSTAL_CODE_CSV,filePath), APIAssertErrorMessages.INVALID_BILL_TO_WORKFLOW_ERROR);
-        softAssert.assertEquals(ZipFileReaderUtil.readBillToCountryFromFile(BILL_TO_COUNTRY_CODE_S3), DataFieldRetrieveUtil.retrieveData(BILL_TO_COUNTRY_CSV,filePath), APIAssertErrorMessages.INVALID_BILL_TO_WORKFLOW_ERROR);
-        softAssert.assertEquals(ZipFileReaderUtil.readBillToOpCoIDFromFile(BILL_TO_OPCO_S3),DataFieldRetrieveUtil.retrieveData(BILL_TO_OPCO_NUMBER_CSV,filePath), APIAssertErrorMessages.INVALID_BILL_TO_WORKFLOW_ERROR);
-        softAssert.assertEquals(ZipFileReaderUtil.readBillToSourceSystemFromFile(BILL_TO_SOURCE_SYSTEM_S3), DataFieldRetrieveUtil.retrieveData(BILL_TO_SOURCE_SYSTEM_CSV,filePath), APIAssertErrorMessages.INVALID_BILL_TO_WORKFLOW_ERROR);
+        softAssert.assertEquals(ZipFileReaderUtil.readBillToNameFromFile(BILL_TO_ACCOUNT_NAME_S3), DataFieldRetrieveUtil.retrieveData(BILL_TO_NAME_CSV,filePath), APIAssertErrorMessages.INVALID_ACC_NAME);
+        softAssert.assertEquals(ZipFileReaderUtil.readBillToAccountNumberFromFile(BILL_TO_ACCOUNT_NUMBER_S3), DataFieldRetrieveUtil.retrieveData(BILLTO_NUMBER_CSV,filePath), APIAssertErrorMessages.INVALID_BILL_TO_ACC_NO);
+        softAssert.assertEquals(ZipFileReaderUtil.readBillToStatusFromFile(BILL_TO_ACCOUNT_STATUS_S3), DataFieldRetrieveUtil.retrieveData(BILL_TO_STATUS_CSV,filePath), APIAssertErrorMessages.INVALID_STATUS_CODE);
+        softAssert.assertEquals(ZipFileReaderUtil.readBillToAddressFromFile(BILL_TO_ADDRESS_LINE1_S3), DataFieldRetrieveUtil.retrieveData(BILL_TO_ADDRESS_1_CSV,filePath), APIAssertErrorMessages.INVALID_BILL_TO_ADDRESS1);
+        softAssert.assertEquals(ZipFileReaderUtil.readBillToCityFromFile(BILL_TO_CITY_S3), DataFieldRetrieveUtil.retrieveData(BILL_TO_CITY_CSV,filePath), APIAssertErrorMessages.INVALID_BILL_TO_CITY);
+        softAssert.assertEquals(ZipFileReaderUtil.readBillToStateFromFile(BILL_TO_STATE_CODE_S3), DataFieldRetrieveUtil.retrieveData(BILL_TO_STATE_CSV,filePath), APIAssertErrorMessages.INVALID_BILL_TO_STATE);
+        softAssert.assertEquals(ZipFileReaderUtil.readBillToTelephoneNumberFromFile(BILL_TO_TELEPHONE_NUMBER_S3), DataFieldRetrieveUtil.retrieveData(BILL_TO_PHONE_CSV,filePath), APIAssertErrorMessages.INVALID_BILL_TO_TEL);
+        softAssert.assertEquals(ZipFileReaderUtil.readBillToPostalCodeFromFile(BILL_TO_ZIP_CODE_S3), DataFieldRetrieveUtil.retrieveData(BILL_TO_POSTAL_CODE_CSV,filePath), APIAssertErrorMessages.INVALID_BILL_TO_ZIP);
+        softAssert.assertEquals(ZipFileReaderUtil.readBillToCountryFromFile(BILL_TO_COUNTRY_CODE_S3), DataFieldRetrieveUtil.retrieveData(BILL_TO_COUNTRY_CSV,filePath), APIAssertErrorMessages.INVALID_BILL_TO_COUNTRY);
+        softAssert.assertEquals(ZipFileReaderUtil.readBillToOpCoIDFromFile(BILL_TO_OPCO_S3),DataFieldRetrieveUtil.retrieveData(BILL_TO_OPCO_NUMBER_CSV,filePath), APIAssertErrorMessages.INVALID_BILL_TO_OPCO);
+        softAssert.assertEquals(ZipFileReaderUtil.readBillToSourceSystemFromFile(BILL_TO_SOURCE_SYSTEM_S3), DataFieldRetrieveUtil.retrieveData(BILL_TO_SOURCE_SYSTEM_CSV,filePath), APIAssertErrorMessages.INVALID_BILL_TO_SOURCE);
 
         softAssert.assertAll();
     }
@@ -63,19 +63,19 @@ public class AssertionUtils extends APITestBase {
 
     public static void assertShipToCSV(String filePath){
 
-        softAssert.assertEquals(ZipFileReaderUtil.readShipToAccountNameFromFile(SHIP_TO_SHIP_TO_ACCOUNT_NAME), DataFieldRetrieveUtil.retrieveData(SHIP_TO_NAME_CSV,filePath), APIAssertErrorMessages.INVALID_BILL_TO_WORKFLOW_ERROR);
-        softAssert.assertEquals(ZipFileReaderUtil.readShipToAccountNumberFromFile(SHIP_TO_SCD_BILL_TO_ACCOUNT_NUMBER), DataFieldRetrieveUtil.retrieveData(BILL_TO_NUMBER_CSV,filePath), APIAssertErrorMessages.INVALID_BILL_TO_WORKFLOW_ERROR);
-        softAssert.assertEquals(ZipFileReaderUtil.readShipToAccountStatusFromFile(SHIP_TO_STATUS), DataFieldRetrieveUtil.retrieveData(SHIP_TO_STATUS_CSV,filePath), APIAssertErrorMessages.INVALID_BILL_TO_WORKFLOW_ERROR);
-        softAssert.assertEquals(ZipFileReaderUtil.readShipToAddressFromFile(SHIP_TO_ADDRESS_LINE1), DataFieldRetrieveUtil.retrieveData(SHIP_TO_ADDRESS_1_CSV,filePath), APIAssertErrorMessages.INVALID_BILL_TO_WORKFLOW_ERROR);
-        softAssert.assertEquals(ZipFileReaderUtil.readShipToCityFromFile(SHIP_TO_CITY), DataFieldRetrieveUtil.retrieveData(SHIP_TO_CITY_CSV,filePath), APIAssertErrorMessages.INVALID_BILL_TO_WORKFLOW_ERROR);
-        softAssert.assertEquals(ZipFileReaderUtil.readShipToStateFromFile(SHIP_TO_STATE_CODE), DataFieldRetrieveUtil.retrieveData(SHIP_TO_STATE_CSV,filePath), APIAssertErrorMessages.INVALID_BILL_TO_WORKFLOW_ERROR);
-        softAssert.assertEquals(ZipFileReaderUtil.readShipToTelephoneNumberFromFile(SHIP_TO_TELEPHONE_NUMBER), DataFieldRetrieveUtil.retrieveData(SHIP_TO_PHONE_CSV,filePath), APIAssertErrorMessages.INVALID_BILL_TO_WORKFLOW_ERROR);
-        softAssert.assertEquals(ZipFileReaderUtil.readShipToPostalCodeFromFile(SHIP_TO_ZIP_CODE), DataFieldRetrieveUtil.retrieveData(SHIP_TO_POSTAL_CODE_CSV, filePath), APIAssertErrorMessages.INVALID_BILL_TO_WORKFLOW_ERROR);
-        softAssert.assertEquals(ZipFileReaderUtil.readShipToCountryFromFile(SHIP_TO_COUNTRY_CODE), DataFieldRetrieveUtil.retrieveData(SHIP_TO_COUNTRY_CSV,filePath), APIAssertErrorMessages.INVALID_BILL_TO_WORKFLOW_ERROR);
-        softAssert.assertEquals(ZipFileReaderUtil.readShipToOpCoIDFromFile(SHIP_TO_OPCO),DataFieldRetrieveUtil.retrieveData(SHIP_TO_OPCO_NUMBER_CSV,filePath), APIAssertErrorMessages.INVALID_BILL_TO_WORKFLOW_ERROR);
-        softAssert.assertEquals(ZipFileReaderUtil.readShipToSourceSystemFromFile(SHIP_TO_SOURCE_SYSTEM), DataFieldRetrieveUtil.retrieveData(SHIP_TO_SOURCE_SYSTEM_CSV,filePath), APIAssertErrorMessages.INVALID_BILL_TO_WORKFLOW_ERROR);
-        softAssert.assertEquals(ZipFileReaderUtil.readShipToStoreNumberFromFile(SHIP_TO_STORE_NUMBER), DataFieldRetrieveUtil.retrieveData(SHIP_TO_STORE_NUMBER_CSV,filePath), APIAssertErrorMessages.INVALID_BILL_TO_WORKFLOW_ERROR);
-        softAssert.assertEquals(ZipFileReaderUtil.readShipToAccountNumberFromFile(SHIP_TO_ENTERPRISE_BILL_TO_FOR_SITE_SHIP_TO), DataFieldRetrieveUtil.retrieveData(SHIP_TO_NUMBER_CSV,filePath), APIAssertErrorMessages.INVALID_BILL_TO_WORKFLOW_ERROR);
+        softAssert.assertEquals(ZipFileReaderUtil.readShipToAccountNameFromFile(SHIP_TO_SHIP_TO_ACCOUNT_NAME), DataFieldRetrieveUtil.retrieveData(SHIP_TO_NAME_CSV,filePath), APIAssertErrorMessages.INVALID_ACC_NAME);
+        softAssert.assertEquals(ZipFileReaderUtil.readShipToAccountNumberFromFile(SHIP_TO_SCD_BILL_TO_ACCOUNT_NUMBER), DataFieldRetrieveUtil.retrieveData(BILL_TO_NUMBER_CSV,filePath), APIAssertErrorMessages.INVALID_BILL_TO_ACC_NO);
+        softAssert.assertEquals(ZipFileReaderUtil.readShipToAccountStatusFromFile(SHIP_TO_STATUS), DataFieldRetrieveUtil.retrieveData(SHIP_TO_STATUS_CSV,filePath), APIAssertErrorMessages.INVALID_STATUS_CODE);
+        softAssert.assertEquals(ZipFileReaderUtil.readShipToAddressFromFile(SHIP_TO_ADDRESS_LINE1), DataFieldRetrieveUtil.retrieveData(SHIP_TO_ADDRESS_1_CSV,filePath), APIAssertErrorMessages.INVALID_SHIP_TO_ADDRESS1);
+        softAssert.assertEquals(ZipFileReaderUtil.readShipToCityFromFile(SHIP_TO_CITY), DataFieldRetrieveUtil.retrieveData(SHIP_TO_CITY_CSV,filePath), APIAssertErrorMessages.INVALID_SHIP_TO_CITY);
+        softAssert.assertEquals(ZipFileReaderUtil.readShipToStateFromFile(SHIP_TO_STATE_CODE), DataFieldRetrieveUtil.retrieveData(SHIP_TO_STATE_CSV,filePath), APIAssertErrorMessages.INVALID_SHIP_TO_STATE);
+        softAssert.assertEquals(ZipFileReaderUtil.readShipToTelephoneNumberFromFile(SHIP_TO_TELEPHONE_NUMBER), DataFieldRetrieveUtil.retrieveData(SHIP_TO_PHONE_CSV,filePath), APIAssertErrorMessages.INVALID_SHIP_TO_TEL);
+        softAssert.assertEquals(ZipFileReaderUtil.readShipToPostalCodeFromFile(SHIP_TO_ZIP_CODE), DataFieldRetrieveUtil.retrieveData(SHIP_TO_POSTAL_CODE_CSV, filePath), APIAssertErrorMessages.INVALID_SHIP_TO_ZIP);
+        softAssert.assertEquals(ZipFileReaderUtil.readShipToCountryFromFile(SHIP_TO_COUNTRY_CODE), DataFieldRetrieveUtil.retrieveData(SHIP_TO_COUNTRY_CSV,filePath), APIAssertErrorMessages.INVALID_SHIP_TO_COUNTRY);
+        softAssert.assertEquals(ZipFileReaderUtil.readShipToOpCoIDFromFile(SHIP_TO_OPCO),DataFieldRetrieveUtil.retrieveData(SHIP_TO_OPCO_NUMBER_CSV,filePath), APIAssertErrorMessages.INVALID_SHIP_TO_OPCO);
+        softAssert.assertEquals(ZipFileReaderUtil.readShipToSourceSystemFromFile(SHIP_TO_SOURCE_SYSTEM), DataFieldRetrieveUtil.retrieveData(SHIP_TO_SOURCE_SYSTEM_CSV,filePath), APIAssertErrorMessages.INVALID_SHIP_TO_SOURCE);
+        softAssert.assertEquals(ZipFileReaderUtil.readShipToStoreNumberFromFile(SHIP_TO_STORE_NUMBER), DataFieldRetrieveUtil.retrieveData(SHIP_TO_STORE_NUMBER_CSV,filePath), APIAssertErrorMessages.INVALID_SHIP_TO_STORE);
+        softAssert.assertEquals(ZipFileReaderUtil.readShipToAccountNumberFromFile(SHIP_TO_ENTERPRISE_BILL_TO_FOR_SITE_SHIP_TO), DataFieldRetrieveUtil.retrieveData(SHIP_TO_NUMBER_CSV,filePath), APIAssertErrorMessages.INVALID_SHIP_TO_ENTERPRISE_BILL_TO_FOR_SITE_SHIP_TO);
 
         softAssert.assertAll();
     }
