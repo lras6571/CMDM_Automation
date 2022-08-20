@@ -83,6 +83,9 @@ public class APIConstants {
     public static final String PASSWORD = SUTAPProperties.getProperty("stibo.password");
     public static final String REMOTE_DIR_PATH = SUTAPProperties.getProperty("stibo.remoteDirPath");
     public static final String REMOTE_DIR_PATH_SHIP_TO = SUTAPProperties.getProperty("stibo.remoteDirPathShipTo");
+    public static final String AUTH_KEY_REQUEST = SUTAPProperties.getProperty("stibo.authKeyRequest");
+    public static final String AUTH_KEY = SUTAPProperties.getProperty("stibo.authKey");
+
 
     /**
      * Entity Reference Types

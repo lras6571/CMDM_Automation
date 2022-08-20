@@ -76,22 +76,51 @@ public class RequestUtil {
 
 
     //Change Entity Record Value
-    public static ValueDetails changeEntityRecordValue(String apiRequest, Map<String, String> queryParams,String accountId,String type) {
+    public static ValueDetails changeEntityRecordValue(String apiRequest, Map<String, String> queryParams,String accountId,String type,String auth) {
 
         APICommonUtil.setProtocolHostAndBasePath(BASE_HTTPS_PROTOCOL, BASE_DOMAIN_STIBO, BASE_PATH_STIBO);
         String uri = URIs.URI_STIBO_ENTITIES_VALUES;
-        Response response = RestUtil.send(HeaderUtil.getRequestHeaders("bHJhczY1NzE6bGFzYW4="), apiRequest, uri.replace("{accountId}", accountId).replace("{type}", type), RequestMethods.REQ_METHOD_PUT, queryParams);
-        return (ValueDetails) ResponseUtils.getResponseAsObject(response.asString(), ValueDetails.class);
+        Response response = RestUtil.send(HeaderUtil.getRequestHeaders(auth), apiRequest, uri.replace("{accountId}", accountId).replace("{type}", type), RequestMethods.REQ_METHOD_PUT, queryParams);
+
+        ValueDetails valueDetails = (ValueDetails) ResponseUtils.getResponseAsObject(response.asString(), ValueDetails.class);
+        valueDetails.setStatusCode(response.getStatusCode());
+        return valueDetails;
     }
 
 
     //Approve the Object
-    public static Response approveObject(String apiRequest, Map<String, String> queryParams,String accountId) {
+    public static Response approveObject(String apiRequest, Map<String, String> queryParams,String accountId,String auth) {
 
         APICommonUtil.setProtocolHostAndBasePath(BASE_HTTPS_PROTOCOL, BASE_DOMAIN_STIBO, BASE_PATH_STIBO);
         String uri = URIs.URI_STIBO_OBJECT_APPROVAL;
-        return RestUtil.send(HeaderUtil.getRequestHeaders("bHJhczY1NzE6bGFzYW4="), apiRequest, uri.replace("{accountId}", accountId), RequestMethods.REQ_METHOD_POST, queryParams);
+        return RestUtil.send(HeaderUtil.getRequestHeaders(auth), apiRequest, uri.replace("{accountId}", accountId), RequestMethods.REQ_METHOD_POST, queryParams);
 
     }
 
+
+    //Retrieve the Bill to Vendor Number from the STIBO
+    public static String retrieveBillToRecordDetailsResponse(Map<String, String> queryParams, String accountId, String auth) {
+
+        APICommonUtil.setProtocolHostAndBasePath(BASE_HTTPS_PROTOCOL, BASE_DOMAIN_STIBO, BASE_PATH_STIBO);
+        String uri = URIs.URI_STIBO_ENTITIES;
+        Response response = RestUtil.send(HeaderUtil.getRequestHeaders(auth), "", uri.replace("{accountId}", accountId), RequestMethods.REQ_METHOD_GET, queryParams);
+        EntitySearchDetailsResponse entitySearchDetailsResponse = (EntitySearchDetailsResponse) ResponseUtils.getResponseAsObject(response.asString(), EntitySearchDetailsResponse.class);
+        entitySearchDetailsResponse.setStatusCode(response.getStatusCode());
+
+        return entitySearchDetailsResponse.getValues().getScdlab_cust_a_billtovendornumber().getValue().getValue();
+
+    }
+
+    //Retrieve the Ship to Vendor Number from the STIBO
+    public static String retrieveShipToRecordDetailsResponse(Map<String, String> queryParams, String accountId, String auth) {
+
+        APICommonUtil.setProtocolHostAndBasePath(BASE_HTTPS_PROTOCOL, BASE_DOMAIN_STIBO, BASE_PATH_STIBO);
+        String uri = URIs.URI_STIBO_ENTITIES;
+        Response response = RestUtil.send(HeaderUtil.getRequestHeaders(auth), "", uri.replace("{accountId}", accountId), RequestMethods.REQ_METHOD_GET, queryParams);
+        EntitySearchDetailsResponse entitySearchDetailsResponse = (EntitySearchDetailsResponse) ResponseUtils.getResponseAsObject(response.asString(), EntitySearchDetailsResponse.class);
+        entitySearchDetailsResponse.setStatusCode(response.getStatusCode());
+
+        return entitySearchDetailsResponse.getValues().getScdlab_cust_a_shiptovendornumber().getValue().getValue();
+
+    }
 }

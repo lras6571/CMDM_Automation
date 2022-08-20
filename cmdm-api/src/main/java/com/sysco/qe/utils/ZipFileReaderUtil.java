@@ -223,4 +223,20 @@ public class ZipFileReaderUtil {
         LoggerUtil.logINFO("Ship To Account Number is in S3 Bucket is: " + fullValueLine[shipToAccountNumber]);
         return columnBillToAccountSourceSystem.replace("\"", "");
     }
+
+
+    public static String readShipToVendorNumberFromFile(int shipToVendorNumber) {
+
+        String columnBillToAccountSourceSystem = fullValueLine[shipToVendorNumber].trim();
+        LoggerUtil.logINFO("Ship To Vendor Number is in S3 Bucket is: " + fullValueLine[shipToVendorNumber]);
+        return columnBillToAccountSourceSystem.replace("\"", "");
+    }
+
+
+    public static String readBillToVendorNumberFromFile(int shipToVendorNumber) {
+
+        String columnBillToAccountSourceSystem = fullValueLine[shipToVendorNumber].trim();
+        LoggerUtil.logINFO("Ship To Vendor Number is in S3 Bucket is: " + fullValueLine[shipToVendorNumber]);
+        return columnBillToAccountSourceSystem.replace("\"", "");
+    }
 }

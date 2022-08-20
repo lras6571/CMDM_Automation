@@ -33,6 +33,8 @@ public class APIAssertErrorMessages {
     public static final String INVALID_SHIP_TO_STORE = "Invalid Ship To Store Number";
     public static final String INVALID_SHIP_TO_SOURCE = "Invalid Ship To Source System";
     public static final String INVALID_SHIP_TO_ENTERPRISE_BILL_TO_FOR_SITE_SHIP_TO = "Invalid Enterprise Bill to for Site Ship to";
+    public static final String INVALID_VENDOR_NAME = "Invalid Vendor Name";
+
 
 
     APIAssertErrorMessages() {

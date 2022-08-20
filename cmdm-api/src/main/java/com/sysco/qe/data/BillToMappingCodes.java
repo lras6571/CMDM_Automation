@@ -13,8 +13,8 @@ public class BillToMappingCodes {
     public static final int BILL_TO_COUNTRY_CODE_S3 = 26;
     public static final int BILL_TO_ZIP_CODE_S3 = 27;
     public static final int BILL_TO_TELEPHONE_NUMBER_S3 = 28;
+    public static final int BILL_TO_VENDOR_NUMBER_S3 = 29;
     public static final int BILL_TO_SOURCE_SYSTEM_S3 = 31;
-    public static final int BILL_TO_VENDOR_NUMBER_S3 = 39;
     public static final int BILL_TO_LEGAL_COMPANY_NAME_S3 = 38;
     public static final int BILL_TO_ACCOUNT_UPDATE_DATE = 40;
     public static final int BILL_TO_CUSTOMER_TYPE_S3 = 32;
