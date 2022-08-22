@@ -8,7 +8,7 @@ public class ShipToMappingCodes {
     public static final int SHIP_TO_ENTERPRISE_SHIP_TO_ID = 23;
     public static final int SHIP_TO_SHIP_TO_ACCOUNT_NAME = 24;
     public static final int SHIP_TO_ADDRESS_LINE1 = 25;
-    public static final int SHIP_TO_ADDRESS_LINE2 = 26;
+    public static final int SHIP_TO_ADDRESS_LINE2_S3= 26;
     public static final int SHIP_TO_CITY = 27;
     public static final int SHIP_TO_STATE_CODE = 28;
     public static final int SHIP_TO_COUNTRY_CODE = 29;
@@ -16,13 +16,13 @@ public class ShipToMappingCodes {
     public static final int SHIP_TO_TELEPHONE_NUMBER = 31;
     public static final int SHIP_TO_STATUS = 32;
     public static final int SHIP_TO_STORE_NUMBER = 33;
-    public static final int SHIP_TO_PRIMARY_CUSTOMER_NUMBER = 34;
-    public static final int SHIP_TO_SHIPPING_POINT = 35;
-    public static final int SHIP_TO_CUSTOMER_TYPE = 36;
+    public static final int SHIP_TO_PRIMARY_CUSTOMER_NUMBER_S3 = 34;
+    public static final int SHIP_TO_SHIPPING_POINT_S3 = 35;
+    public static final int SHIP_TO_CUSTOMER_TYPE_S3 = 36;
     public static final int SHIP_TO_SOURCE_SYSTEM = 37;
-    public static final int SHIP_TO_LEGAL_COMPANY_NAME = 38;
+    public static final int SHIP_TO_LEGAL_COMPANY_NAME_S3 = 38;
     public static final int SHIP_TO_VENDOR_NUMBER = 39;
-    public static final int SHIP_TO_ACCOUNT_UPDATE_DATE = 40;
+    public static final int SHIP_TO_ACCOUNT_UPDATE_DATE_S3 = 40;
     public static final int SHIP_TO_ENTERPRISE_BILL_TO_FOR_SITE_SHIP_TO= 41;
 
     //CSV File Mapping
