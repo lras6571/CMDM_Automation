@@ -89,7 +89,6 @@ public class KafkaConsumerTest extends APITestBase {
 
     }
 
-
     /**
      * Object Approval and Verify the Record is available in S3 Bucket - Ship To
      */
