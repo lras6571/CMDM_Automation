@@ -87,6 +87,12 @@ public class EntitySearchDetailsResponse extends BaseResponse {
         @JsonProperty("scdlab_cust_a_billtoaddressline1")
         private ValueDetails scdlab_cust_a_billtoaddressline1;
 
+        @JsonProperty("scdlab_cust_a_billtovendornumber")
+        private ValueDetails scdlab_cust_a_billtovendornumber;
+
+        @JsonProperty("scdlab_cust_a_shiptovendornumber")
+        private ValueDetails scdlab_cust_a_shiptovendornumber;
+
     }
 
 }

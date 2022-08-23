@@ -47,7 +47,7 @@ public class APIConstants {
     public static final String INPUT_DATA_JSON_FILE3 = PATH_TO_RESOURCE + REQUEST_DATA_DIRECTORY + "ApproveObject.json";
     public static final String INPUT_BILL_TO_DATA_CSV_FILE = PATH_TO_RESOURCE + CSV_DATA_DIRECTORY + "FF_BILL_TO_clean_293_temp.csv";
     public static final String INPUT_BILL_TO_DATA_CSV_FILE2 = PATH_TO_RESOURCE + CSV_DATA_DIRECTORY + "FF_BILL_TO_clean_293_temp2.csv";
-    public static final String INPUT_BILL_TO_DATA_CSV_FILE3 = PATH_TO_RESOURCE + CSV_DATA_DIRECTORY + "FF_SHIP_TO_clean_293_temp2.csv";
+    public static final String INPUT_SHIP_TO_DATA_CSV_FILE3 = PATH_TO_RESOURCE + CSV_DATA_DIRECTORY + "FF_SHIP_TO_clean_293_temp2.csv";
     public static final int STIBO_IMPORT_WAIT = 120000;
 
 
@@ -83,6 +83,9 @@ public class APIConstants {
     public static final String PASSWORD = SUTAPProperties.getProperty("stibo.password");
     public static final String REMOTE_DIR_PATH = SUTAPProperties.getProperty("stibo.remoteDirPath");
     public static final String REMOTE_DIR_PATH_SHIP_TO = SUTAPProperties.getProperty("stibo.remoteDirPathShipTo");
+    public static final String AUTH_KEY_REQUEST = SUTAPProperties.getProperty("stibo.authKeyRequest");
+    public static final String AUTH_KEY = SUTAPProperties.getProperty("stibo.authKey");
+
 
     /**
      * Entity Reference Types
