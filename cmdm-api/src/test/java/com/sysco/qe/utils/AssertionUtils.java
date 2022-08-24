@@ -61,6 +61,7 @@ public class AssertionUtils extends APITestBase {
     }
 
 
+    //Assert Ship to Fields
     public static void assertShipToCSV(String filePath) {
 
         softAssert.assertEquals(ZipFileReaderUtil.readShipToAccountNameFromFile(SHIP_TO_SHIP_TO_ACCOUNT_NAME_S3), DataFieldRetrieveUtil.retrieveData(SHIP_TO_NAME_CSV, filePath), APIAssertErrorMessages.INVALID_ACC_NAME);
@@ -81,6 +82,7 @@ public class AssertionUtils extends APITestBase {
     }
 
 
+    //Assert Bill to Fields
     public static void assertShipToVendorNumberCSV(String VendorNumber) {
 
         softAssert.assertEquals(ZipFileReaderUtil.readShipToVendorNumberFromFile(SHIP_TO_VENDOR_NUMBER_S3), VendorNumber, APIAssertErrorMessages.INVALID_VENDOR_NAME);
