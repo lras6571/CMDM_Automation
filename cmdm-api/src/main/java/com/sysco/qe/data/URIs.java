@@ -2,6 +2,7 @@ package com.sysco.qe.data;
 
 public class URIs {
 
+    //End Points
     public static final String URI_STIBO_ENTITIES_SEARCH = "entities/search";
     public static final String URI_STIBO_ENTITIES = "entities/{accountId}";
     public static final String URI_STIBO_ENTITIES_VALUES1 = "entities/{accountId}/values/scdlab_cust_a_billtovendornumber";
