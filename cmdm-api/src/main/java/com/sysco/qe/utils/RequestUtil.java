@@ -94,7 +94,6 @@ public class RequestUtil {
         APICommonUtil.setProtocolHostAndBasePath(BASE_HTTPS_PROTOCOL, BASE_DOMAIN_STIBO, BASE_PATH_STIBO);
         String uri = URIs.URI_STIBO_OBJECT_APPROVAL;
         return RestUtil.send(HeaderUtil.getRequestHeaders(auth), apiRequest, uri.replace("{accountId}", accountId), RequestMethods.REQ_METHOD_POST, queryParams);
-
     }
 
 
@@ -108,7 +107,6 @@ public class RequestUtil {
         entitySearchDetailsResponse.setStatusCode(response.getStatusCode());
 
         return entitySearchDetailsResponse.getValues().getScdlab_cust_a_billtovendornumber().getValue().getValue();
-
     }
 
     //Retrieve the Ship to Vendor Number from the STIBO
@@ -121,6 +119,5 @@ public class RequestUtil {
         entitySearchDetailsResponse.setStatusCode(response.getStatusCode());
 
         return entitySearchDetailsResponse.getValues().getScdlab_cust_a_shiptovendornumber().getValue().getValue();
-
     }
 }
