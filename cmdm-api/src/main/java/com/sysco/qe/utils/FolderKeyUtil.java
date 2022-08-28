@@ -21,6 +21,7 @@ public class FolderKeyUtil {
     private FolderKeyUtil() {
     }
 
+    //Retrieve the Key from the S3 Bucket
     public static String retrieveKey(String type) throws InterruptedException {
         sleep(180000);
         String bucketName = BUCKET_NAME;
