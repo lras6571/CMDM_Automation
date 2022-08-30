@@ -82,13 +82,14 @@ public class AssertionUtils extends APITestBase {
     }
 
 
-    //Assert Bill to Fields
+    //Assert Ship to Fields
     public static void assertShipToVendorNumberCSV(String VendorNumber) {
 
         softAssert.assertEquals(ZipFileReaderUtil.readShipToVendorNumberFromFile(SHIP_TO_VENDOR_NUMBER_S3), VendorNumber, APIAssertErrorMessages.INVALID_VENDOR_NAME);
         softAssert.assertAll();
     }
 
+    //Assert Bill to Fields
     public static void assertBillToVendorNumberCSV(String VendorNumber) {
 
         softAssert.assertEquals(ZipFileReaderUtil.readBillToVendorNumberFromFile(BILL_TO_VENDOR_NUMBER_S3), VendorNumber, APIAssertErrorMessages.INVALID_VENDOR_NAME);
