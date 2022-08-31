@@ -5,7 +5,7 @@ public class ShipToMappingCodes {
 
     ShipToMappingCodes() {
     }
-
+//Need to change this
     //S3 Bucket Mapping
     public static final int SHIP_TO_OPCO_S3 = 21;
     public static final int SHIP_TO_SCD_BILL_TO_ACCOUNT_NUMBER_S3 = 22;
